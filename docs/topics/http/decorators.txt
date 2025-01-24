@@ -63,6 +63,11 @@ control caching behavior on particular views.
 
 .. function:: condition(etag_func=None, last_modified_func=None)
 
+.. function:: conditional_page()
+
+    This decorator provides the conditional GET operation handling of
+    :class:`~django.middleware.http.ConditionalGetMiddleware` to a view.
+
 .. function:: etag(etag_func)
 
 .. function:: last_modified(last_modified_func)
@@ -117,10 +122,6 @@ client-side caching.
     :func:`~django.utils.cache.patch_cache_control` for the details of the
     transformation.
 
-    .. versionchanged:: 5.0
-
-        Support for wrapping asynchronous view functions was added.
-
 .. function:: never_cache(view_func)
 
     This decorator adds an ``Expires`` header to the current date/time.
@@ -130,10 +131,6 @@ client-side caching.
     should never be cached.
 
     Each header is only added if it isn't already set.
-
-    .. versionchanged:: 5.0
-
-        Support for wrapping asynchronous view functions was added.
 
 .. module:: django.views.decorators.common
 
@@ -148,6 +145,3 @@ customization of :class:`~django.middleware.common.CommonMiddleware` behavior.
     This decorator allows individual views to be excluded from
     :setting:`APPEND_SLASH` URL normalization.
 
-    .. versionchanged:: 5.0
-
-        Support for wrapping asynchronous view functions was added.
